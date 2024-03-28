@@ -24,7 +24,7 @@ app.get("/:id",(req,res)=>{
 
 //route for post data
 app.get("/",(req,res)=>{
-  const id = req.params
+  const id = req.params.id
   console.log(id)
 
   console.log("req.headers")
@@ -32,7 +32,7 @@ app.get("/",(req,res)=>{
   console.log(req.get('host'))
 
 
-  res.redirect(301, `https://barcodescanview.com/${id}`);
+  res.redirect(302, `https://barcodescanview.com/${id}`);
 
 });
 
