@@ -23,6 +23,20 @@ app.get("/:id",(req,res)=>{
 });
 
 //route for post data
+app.get("*",(req,res)=>{
+  const id = req.params
+  console.log(id)
+
+  console.log("req.headers")
+  console.log(req.originalUrl)
+  console.log(req.get('host'))
+
+
+  res.redirect(302, `https://exchangeapi2.onrender.com/`);
+
+});
+
+//route for post data
 app.get("/",(req,res)=>{
   const id = req.params.id
   console.log(id)
