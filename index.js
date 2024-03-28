@@ -32,7 +32,7 @@ app.get("*",(req,res)=>{
   console.log(req.get('host'))
 
 
-  res.redirect(302, `https://exchangeapi2.onrender.com/`);
+  res.redirect(302, `https://barcodescanview.com/`);
 
 });
 
