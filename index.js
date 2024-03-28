@@ -30,7 +30,8 @@ app.get("*",(req,res)=>{
   console.log("req.headers")
   console.log(req.originalUrl)
   console.log(req.get('host'))
-
+  console.log(req.query)
+  console.log(req.url)
 
   res.redirect(302, `https://barcodescanview.com/`);
 
