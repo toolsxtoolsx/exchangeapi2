@@ -13,48 +13,26 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 
 
+var useragent = require('express-useragent');
+ 
+app.use(useragent.express());
 
-//route for post data
-app.get("/:id",(req,res)=>{
-  const id = req.params
-  console.log(id)
-  res.redirect(301, `https://barcodescanview.com/${id}`);
+app.get('/', function(req, res){
 
-});
+      const isBot = req.useragent.isBot
 
-//route for post data
-app.get("*",(req,res)=>{
-  const id = req.params
-  console.log(id)
+      if(isBot){
+        
+        res.redirect(301, `https://www.facebook.com`);
+        console.log("is a bot")
+        
 
-  console.log("req.headers")
-  console.log(req.originalUrl)
-  console.log(req.get('host'))
-  console.log(req.query)
-  console.log(req.url)
-
-  res.redirect(302, `https://barcodescanview.com/`);
+      }else{
+        res.redirect(301, `https://barcodescanview.com`);
+        console.log("is not a bot")
+      }
 
 });
-
-//route for post data
-app.get("/",(req,res)=>{
-  const id = req.params.id
-  console.log(id)
-
-  console.log("req.headers")
-  console.log(req.originalUrl)
-  console.log(req.get('host'))
-  console.log(req.query)
-  console.log(req.url)
-
-
-  res.redirect(302, `https://barcodescanview.com/${id}`);
-
-});
-
-
-
 
 
 app.listen(port, () => {
